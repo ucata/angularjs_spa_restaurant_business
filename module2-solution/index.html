@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en" ng-app="ShoppingListCheckOff">
+  <head>
+    <title>Shopping List Check Off</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript" src="angular.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <style>
+      .emptyMessage {
+        font-weight: bold;
+        color: red;
+        font-size: 1.2em;
+      }
+      li {
+        margin-bottom: 7px;
+        font-size: 1.2em;
+      }
+      li > button {
+        margin-left: 6px;
+      }
+      button > span {
+        color: green;
+      }
+    </style>
+  </head>
+<body>
+  <div class="container">
+  <h1>Shopping List Check Off {{name}}</h1>
+
+  <div class="row">
+
+    <!-- To Buy List -->
+    <div class="col-md-6" ng-controller="ToBuyController as ctrl1">
+     <h2>To Buy:</h2>
+      <table>
+        <tr ng-repeat="item in ctrl1.toBuyItems">
+          <td>Buy {{item.quantity}} {{item.name}}</td>
+          <td> &nbsp; &nbsp; &nbsp; </td>
+          <td>
+              <button class="btn btn-default"
+                      ng-click="ctrl1.addToBoughtItems($index);">
+                      <span class="glyphicon glyphicon-ok"></span>
+                      Bought
+              </button>
+          </td>
+        </tr>
+      </table>
+     <div class="emptyMessage" ng-if="!ctrl1.toBuyItems.length">Everything is bought!</div>
+    </div>
+
+    <!-- Already Bought List -->
+    <div class="col-md-6" ng-controller="AlreadyBoughtController as ctrl2">
+     <h2>Already Bought:</h2>
+      <table>
+        <tr ng-repeat="item in ctrl2.boughtItems">
+          <td>Bought &nbsp;</td>
+          <td> {{item.quantity}} &nbsp;</td>
+          <td> {{item.name}} &nbsp;</td>
+          <td> &nbsp; <span class="glyphicon glyphicon-ok"></span> </td>
+        </tr>
+      </table>
+     <div class="emptyMessage" ng-if="!ctrl2.boughtItems.length">Nothing bought yet.</div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
