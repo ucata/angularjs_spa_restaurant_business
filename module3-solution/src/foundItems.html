@@ -1,0 +1,27 @@
+<table class="table"
+       ng-repeat="item in ctrl.items"
+       ng-if="ctrl.items.length">
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Short Name</th>
+            <th scope="col">Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{ item.name }}</td>
+            <td>{{ item.short_name }}</td>
+            <td>{{ item.description }}</td>
+            <td>
+                <button ng-click="ctrl.onRemove({index: $index})">
+                    Don't want this one!
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<div ng-if="!ctrl.matchList">
+    <h3> &nbsp; &nbsp; Nothing found </h3>
+</div>
+  
