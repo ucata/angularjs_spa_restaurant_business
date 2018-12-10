@@ -1,0 +1,17 @@
+<hr>
+    <h4>Welcome to Categories Item Page</h4>
+<hr>
+
+<p>
+    <a ui-sref="home">Home</a> |
+    <a ui-sref="categoriesList">Categories</a> |
+    <span>Categories Item List</span>
+</p>
+
+<p>See below the items for your selection:</p>
+
+<ul>
+    <li ng-repeat="item in itemListCtrl.items">
+        {{item.name}} --- {{item.description}}
+    </li>
+</ul>
