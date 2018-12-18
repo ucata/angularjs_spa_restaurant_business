@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="row">
+        <div ng-if="MyInfoCtrl.isLogged()">
+            <h3>User information</h3>
+            <p>First name: {{ MyInfoCtrl.user.firstname }}</p>
+            <p>Last name: {{ MyInfoCtrl.user.lastname }}</p>
+            <p>Email: {{ MyInfoCtrl.user.email }}</p>
+            <p>Phone: {{ MyInfoCtrl.user.phone }}</p>
+            <p>Your Favorite Dish: {{ MyInfoCtrl.user.favdish }}</p>
+        </div>
+
+        <div ng-if="!MyInfoCtrl.isLogged()" align="center">
+            <p>
+                Not Signed Up Yet <br>
+                <a ui-sref="public.login">Sign up Now!</a>
+            </p>
+        </div>
+    </div>
+</div>
