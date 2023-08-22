@@ -1,2 +1,1 @@
-# coursera-AngularJS
-Test repo for coursera
+# Restaurant Business: AngularJS Single Page Application (Coursera)
